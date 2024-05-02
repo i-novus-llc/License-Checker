@@ -26,8 +26,9 @@
   ],
   "type": "module",
   "main": "license-checker.js",
-  "bin": {
-    "license-checker": "./license-checker.js"
+  "bin": "./license-checker.js",
+  "scripts": {
+    "build": ""
   },
   "dependencies": {
     "commander": "^12.0.0",

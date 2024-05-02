@@ -13,7 +13,7 @@ __metadata:
     license-checker: ^25.0.1
     license-checker-rseidelsohn: ^4.3.0
   bin:
-    license-checker: ./cli.js
+    license-checker: ./license-checker.js
   languageName: unknown
   linkType: soft
 
