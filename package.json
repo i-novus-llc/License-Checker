@@ -23,8 +23,8 @@
     "package.json"
   ],
   "type": "module",
-  "main": "./src/license-checker.js",
-  "bin": "./src/license-checker.js",
+  "main": "./dist/license-checker.js",
+  "bin": "./dist/license-checker.js",
   "scripts": {
     "build": ""
   },
