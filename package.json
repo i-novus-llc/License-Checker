@@ -5,7 +5,11 @@
         "packages/*"
     ],
     "scripts": {
-        "build": ""
+        "build": "",
+        "postinstall": "license-checker"
+    },
+    "devDependencies": {
+        "@i-novus/license-checker": "workspace:^"
     },
     "engines": {
         "npm": "please-use-yarn",
