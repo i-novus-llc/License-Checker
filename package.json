@@ -24,9 +24,7 @@
   ],
   "type": "module",
   "main": "./src/license-checker.js",
-  "bin": {
-    "license-checker": "./src/license-checker.js"
-  },
+  "bin": "./src/license-checker.js",
   "scripts": {
     "build": ""
   },
