@@ -1,41 +1,15 @@
 {
-  "name": "@i-novus/license-checker",
-  "version": "0.0.2",
-  "description": "Проверка, что лицензии всех используемых пакетов - свободные",
-  "license": "Apache-2.0",
-  "author": {
-    "name": "I-Novus LLC",
-    "email": "n2o@i-novus.ru",
-    "url": "https://i-novus.ru/"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "keywords": [
-    "license",
-    "check",
-    "cli",
-    "free license"
-  ],
-  "files": [
-    "src",
-    "LICENSE",
-    "package.json"
-  ],
-  "type": "module",
-  "main": "./dist/license-checker.js",
-  "bin": "./dist/license-checker.js",
-  "scripts": {
-    "build": ""
-  },
-  "dependencies": {
-    "commander": "^12.0.0",
-    "license-checker": "^25.0.1",
-    "license-checker-rseidelsohn": "^4.3.0"
-  },
-  "engines": {
-    "npm": "please-use-yarn",
-    "node": ">=16"
-  },
-  "packageManager": "yarn@3.6.3"
+    "private": true,
+    "type": "module",
+    "workspaces": [
+        "packages/*"
+    ],
+    "scripts": {
+        "build": ""
+    },
+    "engines": {
+        "npm": "please-use-yarn",
+        "node": ">=16"
+    },
+    "packageManager": "yarn@3.6.3"
 }
