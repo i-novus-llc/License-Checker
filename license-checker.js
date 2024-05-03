@@ -28,7 +28,6 @@ program
                 if (error) {
                     throw error
                 }
-
                 console.log(checker.asSummary(packages))
             })
         } catch (error) {
