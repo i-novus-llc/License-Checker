@@ -29,9 +29,11 @@ program
                     throw error
                 }
                 console.log(checker.asSummary(packages))
+
             })
         } catch (error) {
             console.error(error.message)
+
             process.exit(1)
         }
     })
