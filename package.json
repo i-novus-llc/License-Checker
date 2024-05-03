@@ -18,15 +18,15 @@
     "free license"
   ],
   "files": [
-    "utils",
-    "license-checker.js",
-    "constants.js",
+    "src",
     "LICENSE",
     "package.json"
   ],
   "type": "module",
-  "main": "license-checker.js",
-  "bin": "./license-checker.js",
+  "main": "./src/license-checker.js",
+  "bin": {
+    "license-checker": "./src/license-checker.js"
+  },
   "scripts": {
     "build": ""
   },
