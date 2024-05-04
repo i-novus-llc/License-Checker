@@ -25,6 +25,12 @@ license-checker
 ### Установка
 
 ```bash
+npm install --save-dev @i-novus/license-checker
+```
+
+или
+
+```bash
 yarn add @i-novus/license-checker --dev
 ```
 
