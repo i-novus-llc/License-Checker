@@ -60,7 +60,6 @@ yarn add --dev @i-novus/license-checker
 license-checker --exclude axe-core
 ```
 
-
 ## License
 
 [Apache-2.0](./LICENSE)
