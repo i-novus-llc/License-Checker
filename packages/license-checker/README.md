@@ -53,6 +53,9 @@ yarn add --dev @i-novus/license-checker
 то библиотека может использоваться при создании коммерческого ПО без раскрытия исходного кода.
 В этом случае запуск команды будет выглядеть так:
 
+Библиотека [tsc-watch](https://www.npmjs.com/package/tsc-watch) использует под капотом [map-stream](https://www.npmjs.com/package/map-stream) 
+версию 0.1.0, она битая с точки зрения лицензии. Нужно резолвить версию 0.0.5, она полностью идентична, но содержит MIT лицензию. 
+
 ```bash
 license-checker --exclude axe-core
 ```
