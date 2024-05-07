@@ -8,6 +8,14 @@
     "email": "n2o@i-novus.ru",
     "url": "https://i-novus.ru/"
   },
+  "homepage": "https://www.npmjs.com/package/@i-novus/license-checker",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/i-novus-llc/license-checker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/i-novus-llc/license-checker/issues"
+  },
   "publishConfig": {
     "access": "public"
   },
