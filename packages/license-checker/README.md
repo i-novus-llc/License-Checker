@@ -34,7 +34,9 @@ npm install --save-dev @i-novus/license-checker
 yarn add --dev @i-novus/license-checker
 ```
 
-### Вызов в стадии postinstall (package.json)
+### Вызов в стадии postinstall для npm (package.json)
+#### npm
+В файле `package.json` добавьте скрипт:
 
 ```json
 {
@@ -43,6 +45,19 @@ yarn add --dev @i-novus/license-checker
   }
 }
 ```
+
+#### yarn
+
+`yarn install` [не запускает postinstall](https://github.com/yarnpkg/yarn/issues/5476), если небыло изменения дерева зависимостей.
+Для исправления этого поведения рекоммендуется установить [плагин](https://github.com/mhassan1/yarn-plugin-after-install) и вызывать его следующим образом:
+
+В файле `.yarnrc.yml` добавьте строку
+
+```yml
+afterInstall: yarn run license-checker
+```
+
+Ceotcndetn
 
 ## Известные примеры исключений
 
