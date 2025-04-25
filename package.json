@@ -1,49 +1,16 @@
 {
-  "name": "@i-novus/license-checker",
-  "version": "1.0.0-rc-1",
-  "description": "Проверка, что лицензии всех используемых пакетов - свободные",
   "license": "Apache-2.0",
-  "author": {
-    "name": "I-Novus LLC",
-    "email": "n2o@i-novus.ru",
-    "url": "https://i-novus.ru/"
-  },
-  "homepage": "https://www.npmjs.com/package/@i-novus/license-checker",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/i-novus-llc/license-checker.git"
-  },
-  "bugs": {
-    "url": "https://github.com/i-novus-llc/license-checker/issues"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "keywords": [
-    "license",
-    "check",
-    "cli",
-    "free license"
-  ],
-  "files": [
-    "dist",
-    "LICENSE",
-    "package.json"
-  ],
+  "private": true,
   "type": "module",
-  "bin": "dist/license-checker.js",
+  "workspaces": [
+    "workspaces/*"
+  ],
   "scripts": {
-    "lint:ts": "tsc",
-    "check-my-licenses": "node ./dist/license-checker.js",
-    "build": "yarn run lint:ts&&tsup-node&&yarn run check-my-licenses"
+    "build": "yarn workspace @i-novus/license-checker run build"
   },
-  "dependencies": {
-    "commander": "^13.1.0",
-    "license-checker-rseidelsohn": "^4.4.2"
+  "engines": {
+    "npm": "please-use-yarn",
+    "node": ">=18"
   },
-  "devDependencies": {
-    "@types/node": "^18.15.3",
-    "tsup": "^8.4.0",
-    "typescript": "^5.8.3"
-  }
+  "packageManager": "yarn@3.6.3"
 }
