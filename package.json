@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "workspaces": [
-    "workspaces/*"
+    "packages/*"
   ],
   "scripts": {
     "build": "yarn workspace @i-novus/license-checker run build"

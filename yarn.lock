@@ -180,9 +180,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@i-novus/license-checker@workspace:workspaces/license-checker":
+"@i-novus/license-checker@workspace:packages/license-checker":
   version: 0.0.0-use.local
-  resolution: "@i-novus/license-checker@workspace:workspaces/license-checker"
+  resolution: "@i-novus/license-checker@workspace:packages/license-checker"
   dependencies:
     "@types/node": ^18.15.3
     commander: ^13.1.0
