@@ -1,15 +1,15 @@
-import { readdirSync, readFileSync } from "fs";
-import path from "path";
+import {readdirSync, readFileSync} from "node:fs";
+import path from "node:path";
 
-export const getLocalPackages = (root) => {
+export const getLocalPackages = (root: string) => {
     const rootPackageJsonBuffer = readFileSync(
         path.join(root, 'package.json'),
-        { encoding: 'utf-8' },
+        {encoding: 'utf-8'},
     )
 
     const rootPackageJsonData = JSON.parse(rootPackageJsonBuffer)
 
-    const { name, workspaces } = rootPackageJsonData
+    const {name, workspaces} = rootPackageJsonData as { name?: string; workspaces?: string[] }
 
     return workspaces?.reduce((result, workspace) => {
         const directory = workspace.slice(0, -2)
@@ -54,5 +54,5 @@ export const getLocalPackages = (root) => {
             ...result,
             workspace,
         ]
-    }, [name])
+    }, name ? [name] : [])
 }

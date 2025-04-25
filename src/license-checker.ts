@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-import { program } from 'commander'
 import process from 'node:process'
-import checker from 'license-checker-rseidelsohn'
+
+import { program } from 'commander'
+import * as checker from 'license-checker-rseidelsohn'
 
 import { DEFAULT_ALLOWED_LICENSES } from "./constants.js";
 import { getExcludes } from "./utils/getExcludes.js";
@@ -28,11 +29,12 @@ program
                 if (error) {
                     throw error
                 }
+                // @ts-ignore
                 console.log(checker.asSummary(packages))
 
             })
         } catch (error) {
-            console.error(error.message)
+            console.error((error as Error).message)
 
             process.exit(1)
         }

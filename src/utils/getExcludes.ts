@@ -1,7 +1,8 @@
-import { DEFAULT_EXCLUDED_PREFIXES } from "../constants.js";
-import { getLocalPackages } from "./getLocalPackages.js";
+import { DEFAULT_EXCLUDED_PREFIXES } from "../constants";
 
-export const getExcludes = (root, exclude) => {
+import { getLocalPackages } from "./getLocalPackages";
+
+export const getExcludes = (root: string, exclude: string) => {
     const localPackages = getLocalPackages(root)
 
     const localPackagesString = localPackages?.join(';')
@@ -17,7 +18,7 @@ export const getExcludes = (root, exclude) => {
             }
 
             return result
-        }, [])
+        }, [] as string[])
 
     const excludeNames = exclude
         .split(';')
