@@ -1,6 +1,6 @@
 {
   "name": "@i-novus/license-checker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Проверка, что лицензии всех используемых пакетов - свободные",
   "license": "Apache-2.0",
   "author": {
