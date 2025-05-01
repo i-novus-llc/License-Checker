@@ -1,11 +1,10 @@
-import { DEFAULT_EXCLUDED_PREFIXES } from "../constants";
+import { DEFAULT_EXCLUDED_PREFIXES } from "../constants"
 
-import { getLocalPackages } from "./getLocalPackages";
+import { getLocalPackages } from "./getLocalPackages"
 
 export const getExcludes = (root: string, exclude: string) => {
     const localPackages = getLocalPackages(root)
-
-    const localPackagesString = localPackages?.join(';')
+    const localPackagesString = localPackages.join(';')
 
     const excludePrefixes = exclude
         .split(';')

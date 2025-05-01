@@ -1,58 +1,70 @@
-import {readdirSync, readFileSync} from "node:fs";
-import path from "node:path";
+import { readdirSync, readFileSync } from "node:fs"
+import path from "node:path"
 
 export const getLocalPackages = (root: string) => {
     const rootPackageJsonBuffer = readFileSync(
         path.join(root, 'package.json'),
-        {encoding: 'utf-8'},
+        { encoding: 'utf-8' },
     )
 
     const rootPackageJsonData = JSON.parse(rootPackageJsonBuffer)
 
-    const {name, workspaces} = rootPackageJsonData as { name?: string; workspaces?: string[] }
+    const { name, workspaces } = rootPackageJsonData as { name?: string; workspaces?: string[] }
 
-    return workspaces?.reduce((result, workspace) => {
-        const directory = workspace.slice(0, -2)
-        const pattern = workspace.slice(-2)
+    const localPackages: string[] = []
 
-        if (pattern === '/*') {
-            const pathToDirectory = path.join(root, directory)
+    if (workspaces) {
+        const workspacePackages = workspaces.reduce<string[]>((result, workspace) => {
+            const directory = workspace.slice(0, -2)
+            const pattern = workspace.slice(-2)
 
-            const files = readdirSync(
-                pathToDirectory,
-                {encoding: 'utf-8'},
-            )
+            if (pattern === '/*') {
+                const pathToDirectory = path.join(root, directory)
 
-            const packagesNames = files.map((filename) => {
-                const pathToFile = path.join(pathToDirectory, filename)
-
-                const nestedFiles = readdirSync(
-                    pathToFile,
+                const files = readdirSync(
+                    pathToDirectory,
                     {encoding: 'utf-8'},
                 )
 
-                const isExistPackageJson = nestedFiles.includes('package.json')
+                const packagesNames = files.map((filename) => {
+                    const pathToFile = path.join(pathToDirectory, filename)
 
-                if (!isExistPackageJson) {
-                    return null
-                }
+                    const nestedFiles = readdirSync(
+                        pathToFile,
+                        {encoding: 'utf-8'},
+                    )
 
-                const packageJsonBuffer = readFileSync(
-                    path.join(pathToFile, 'package.json'),
-                    {encoding: 'utf-8'},
-                )
+                    const isExistPackageJson = nestedFiles.includes('package.json')
 
-                const packageJsonData = JSON.parse(packageJsonBuffer)
+                    if (!isExistPackageJson) {
+                        return null
+                    }
 
-                return packageJsonData.name
-            }).filter(Boolean)
+                    const packageJsonBuffer = readFileSync(
+                        path.join(pathToFile, 'package.json'),
+                        {encoding: 'utf-8'},
+                    )
 
-            return [...result, ...packagesNames]
-        }
+                    const packageJsonData = JSON.parse(packageJsonBuffer)
 
-        return [
-            ...result,
-            workspace,
-        ]
-    }, name ? [name] : [])
+                    return packageJsonData.name
+                }).filter(Boolean)
+
+                return [...result, ...packagesNames]
+            }
+
+            return [
+                ...result,
+                workspace,
+            ]
+        }, [])
+
+        localPackages.push(...workspacePackages)
+    }
+
+    if (name) {
+        localPackages.push(name)
+    }
+
+    return localPackages
 }
