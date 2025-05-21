@@ -5,8 +5,8 @@ import process from 'node:process'
 import { program } from 'commander'
 import * as checker from 'license-checker-rseidelsohn'
 
-import { DEFAULT_ALLOWED_LICENSES } from "./constants.js";
-import { getExcludes } from "./utils/getExcludes.js";
+import { DEFAULT_ALLOWED_LICENSES } from './constants'
+import { getExcludes } from './utils/getExcludes'
 
 program
     .option('--root  <VALUE>', 'Root path. Default: "./"')
@@ -29,9 +29,10 @@ program
                 if (error) {
                     throw error
                 }
-                // @ts-ignore
-                console.log(checker.asSummary(packages))
 
+                // @ts-expect-error Неполная .d.ts схема
+                // eslint-disable-next-line no-console
+                console.log(checker.asSummary(packages))
             })
         } catch (error) {
             console.error((error as Error).message)

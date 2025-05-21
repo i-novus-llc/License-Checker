@@ -1,5 +1,5 @@
-import { readdirSync, readFileSync } from "node:fs"
-import path from "node:path"
+import { readdirSync, readFileSync } from 'node:fs'
+import path from 'node:path'
 
 export const getLocalPackages = (root: string) => {
     const rootPackageJsonBuffer = readFileSync(
@@ -23,7 +23,7 @@ export const getLocalPackages = (root: string) => {
 
                 const files = readdirSync(
                     pathToDirectory,
-                    {encoding: 'utf-8'},
+                    { encoding: 'utf-8' },
                 )
 
                 const packagesNames = files.map((filename) => {
@@ -31,7 +31,7 @@ export const getLocalPackages = (root: string) => {
 
                     const nestedFiles = readdirSync(
                         pathToFile,
-                        {encoding: 'utf-8'},
+                        { encoding: 'utf-8' },
                     )
 
                     const isExistPackageJson = nestedFiles.includes('package.json')
@@ -42,7 +42,7 @@ export const getLocalPackages = (root: string) => {
 
                     const packageJsonBuffer = readFileSync(
                         path.join(pathToFile, 'package.json'),
-                        {encoding: 'utf-8'},
+                        { encoding: 'utf-8' },
                     )
 
                     const packageJsonData = JSON.parse(packageJsonBuffer)

@@ -1,6 +1,6 @@
-import { DEFAULT_EXCLUDED_PREFIXES } from "../constants"
+import { DEFAULT_EXCLUDED_PREFIXES } from '../constants'
 
-import { getLocalPackages } from "./getLocalPackages"
+import { getLocalPackages } from './getLocalPackages'
 
 export const getExcludes = (root: string, exclude: string) => {
     const localPackages = getLocalPackages(root)

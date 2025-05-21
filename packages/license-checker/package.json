@@ -1,49 +1,58 @@
 {
-  "name": "@i-novus/license-checker",
-  "version": "1.0.3",
-  "description": "Проверка, что лицензии всех используемых пакетов - свободные",
-  "license": "Apache-2.0",
-  "author": {
-    "name": "I-Novus LLC",
-    "email": "n2o@i-novus.ru",
-    "url": "https://i-novus.ru/"
-  },
-  "homepage": "https://www.npmjs.com/package/@i-novus/license-checker",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/i-novus-llc/license-checker.git"
-  },
-  "bugs": {
-    "url": "https://github.com/i-novus-llc/license-checker/issues"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "keywords": [
-    "license",
-    "check",
-    "cli",
-    "free license"
-  ],
-  "files": [
-    "dist",
-    "LICENSE",
-    "package.json"
-  ],
-  "type": "module",
-  "bin": "dist/license-checker.js",
-  "scripts": {
-    "lint:ts": "tsc",
-    "check-my-licenses": "node ./dist/license-checker.js",
-    "build": "yarn run lint:ts&&tsup-node&&yarn run check-my-licenses"
-  },
-  "dependencies": {
-    "commander": "^13.1.0",
-    "license-checker-rseidelsohn": "^4.4.2"
-  },
-  "devDependencies": {
-    "@types/node": "^18.15.3",
-    "tsup": "^8.4.0",
-    "typescript": "^5.8.3"
-  }
+    "name": "@i-novus/license-checker",
+    "version": "1.0.3",
+    "description": "Проверка, что лицензии всех используемых пакетов - свободные",
+    "author": {
+        "name": "I-Novus LLC",
+        "email": "n2o@i-novus.ru",
+        "url": "https://i-novus.ru/"
+    },
+    "homepage": "https://www.npmjs.com/package/@i-novus/license-checker",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/i-novus-llc/license-checker.git"
+    },
+    "bugs": {
+        "url": "https://github.com/i-novus-llc/license-checker/issues"
+    },
+    "license": "Apache-2.0",
+    "keywords": [
+        "license",
+        "check",
+        "cli",
+        "free license"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "files": [
+        "dist",
+        "LICENSE",
+        "package.json",
+        "README.md"
+    ],
+    "bin": "dist/license-checker.mjs",
+    "scripts": {
+        "============== Lint =============": "",
+        "lint": "yarn run lint:eslint&&yarn run lint:ts",
+        "lint:eslint": "eslint src",
+        "lint:ts": "tsc",
+        "============= Build =============": "",
+        "build": "yarn run lint&&tsup-node",
+        "============== Service ==========": "",
+        "prepublish": "yarn run copy:doc",
+        "copy:doc": "cpy ../../LICENSE ../../README.md ./packages/eslint-config"
+    },
+    "dependencies": {
+        "commander": "^13.1.0",
+        "license-checker-rseidelsohn": "^4.4.2"
+    },
+    "devDependencies": {
+        "@i-novus/eslint-config": "^9.1.1",
+        "@types/node": "^18.15.3",
+        "cpy-cli": "^5.0.0",
+        "eslint": "^9.27.0",
+        "tsup": "^8.4.0",
+        "typescript": "^5.8.3"
+    }
 }
