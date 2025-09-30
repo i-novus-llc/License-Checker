@@ -1,5 +1,7 @@
 # @i-novus/license-checker
 
+[![NPM version](https://img.shields.io/npm/v/@i-novus/license-checker.svg)](https://www.npmjs.org/package/@i-novus/license-checker)
+
 CLI утилита для проверки лицензий используемых зависимостей. По умолчанию разрешены библиотеки со свободными лицензиями
 
 Проблема: существуют "вирусные" лицензии, которые могут накладывать ограничения на финальный код.
