@@ -1,6 +1,6 @@
 {
     "name": "@i-novus/license-checker",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "description": "Проверка, что лицензии всех используемых пакетов - свободные",
     "author": {
         "name": "I-Novus LLC",
