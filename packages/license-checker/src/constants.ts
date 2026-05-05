@@ -1,6 +1,7 @@
 export const DEFAULT_ALLOWED_LICENSES = [
     'BSD',
     'MIT',
+    'MPL-2.0',
     'ISC',
     'Apache-2.0',
     'EPL-1.0',
